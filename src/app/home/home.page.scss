@@ -1,0 +1,39 @@
+.main-content{
+    padding-top: 1rem;
+    padding-left: 1rem;
+    background-image:url('/assets/images/space.jpg') ;
+    height: 100%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.main-content__drop-zone{
+    width: 70%;
+    margin: auto;
+    border-radius: 10px;
+    height: auto;
+    background: #fff;
+    padding: 2rem;
+}
+.main-content__title{
+    display: flex;
+    color: #fff;
+    font-size: 24px;
+    padding-top: 2rem;
+
+}
+.drop-zone_wrapper{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.filter-container{
+    margin-top: 2rem;
+}
+
+.filter-element {
+    margin-top: 8px;
+}

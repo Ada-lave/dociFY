@@ -1,0 +1,100 @@
+.file-container{
+    width: auto;
+    margin: auto;
+    border-radius: 10px;
+    height: 150px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transition: 0.3s;
+    background-color: #93939314;
+    border: 4px dashed  #9F9F9F;
+    cursor: pointer;
+}
+
+.file-container:hover{
+    margin: auto;
+    border-radius: 10px;
+    height: 150px;
+    background-color: #009bfc1a;
+    transition: 0.3s;
+    border: 4px dashed  #009bfc82;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.file{
+    transform: translateY(800%);
+    cursor: pointer;
+    margin-top: -5rem;
+    opacity: 0;
+    position: absolute;
+    z-index: 100;
+    min-width: clamp(20rem, 12.727rem + 36.36vw, 40rem);
+    opacity: 1;
+    height: 6rem;
+    display: none;
+}
+
+.drag-icon-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.drag-icon{
+    z-index: 1;
+    max-height: 3rem;
+    margin-top: 1rem;
+}
+.file-icon{
+    max-height: 2rem;
+}
+.file-wrapper{
+    margin-top: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    transition: 0.3s;
+    max-width: auto;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: flex;
+    align-items: center;
+
+}
+.file-wrapper:hover{
+    cursor: pointer;
+    border-radius: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    background: #777777;
+    transition: 0.3s;
+    max-width: auto;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: flex;
+    align-items: center;
+}
+.file-name{
+  margin-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-family: 'gotham-medium';
+}
+.file-grid{
+
+
+}
+.drag-button{
+    background: #1B93FF;
+    color: #fff;
+    height: 2.5rem;
+    padding-left: 2rem;
+    margin: auto;
+    padding-right: 2rem;
+    border-radius: 4px;
+}

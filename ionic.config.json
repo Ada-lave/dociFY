@@ -1,0 +1,7 @@
+{
+  "name": "dociFY",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
