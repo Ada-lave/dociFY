@@ -10,7 +10,7 @@ import { NgClass } from '@angular/common';
 export class SwitcherComponent  implements OnInit {
 
   constructor() { }
-  active:boolean = false
+  active:boolean = true
   changeActive(){
     this.active = !this.active
   }

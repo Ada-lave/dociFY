@@ -5,11 +5,13 @@
         </header>
         <div class="drop-zone_wrapper">
           <div class="main-content__drop-zone">
-            <app-drag-and-drop></app-drag-and-drop>
+            <app-drag-and-drop (fileSelected)="handleFiles($event)"/>
               <div class="filter-container">
                 <app-switcher class="filter-element"></app-switcher>
               </div>
-
+              <div class="submit_button_container">
+                <ion-button [disabled]="this.files.length===0" class="submit_button" (click)="sendFiles()">Отправить</ion-button>
+              </div>
           </div>
           <div>
             <strong class="main-content__title">Нужно отформатировать документ?</strong>

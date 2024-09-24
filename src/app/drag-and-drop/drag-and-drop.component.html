@@ -3,7 +3,7 @@
         <div class="drag-icon-wrapper">
             <img src="assets/icon/document.svg" alt="" class="drag-icon">
         </div>
-        <input #file (dragenter)="dragenterFile(inputWrapper)" (drop)="dragenterFileLeave(inputWrapper)" (dragleave)="dragenterFileLeave(inputWrapper)" type="file" class="file" multiple (change)="getFile($event)">
+        <input #file (dragenter)="dragenterFile(inputWrapper)" (drop)="dragenterFileLeave(inputWrapper)" (dragleave)="dragenterFileLeave(inputWrapper)" type="file" class="file" accept=".docx,.doc" multiple (change)="getFile($event)">
         <button  class="drag-button">Загрузить файл</button>
     </div>
     <div class="file-grid">
@@ -14,6 +14,6 @@
             </div>
         </ng-container>
     </div>
-   
-   
+
+
 </div>

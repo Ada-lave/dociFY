@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-drag-and-drop',
@@ -14,8 +14,9 @@ export class DragAndDropComponent {
   files:File[] = []
   @Input() maxFileCount:number = 1
   @Input() types:any[] =['docx']
+  @Output() fileSelected: EventEmitter<File[]> = new EventEmitter<File[]>()
+
   getFile(event: any) {
-    console.log(event.target.files)
     if(this.files.length < this.maxFileCount) {
       let tempArray:File[] = Array.from(event.target.files)
       tempArray.forEach((file:File)=>{
@@ -23,7 +24,7 @@ export class DragAndDropComponent {
         this.files.push(file)
 
       })
-      console.log(this.files)
+      this.fileSelected.emit(this.files)
     }
   }
 
