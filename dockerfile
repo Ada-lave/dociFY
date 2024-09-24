@@ -4,7 +4,7 @@ WORKDIR /var/www/
 
 COPY . .
 
-RUN npm install
+RUN npm install --force
 RUN export NODE_OPTIONS="--max-old-space-size=8192"
 RUN npm run build
 
