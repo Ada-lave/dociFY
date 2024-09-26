@@ -1,1 +1,24 @@
+name: "Deploy to server"
 
+on:
+    push:
+        branches: ["main"]
+
+jobs:
+   re-build-docker-image:
+        runs-on: ubuntu-latest
+        steps:
+            -
+                uses: appleboy/ssh-action@v1.0.3
+                with:
+                    host: ${{ secrets.DEV_HOST }}
+                    username: ${{ secrets.DEV_USER }}
+                    key: ${{ secrets.DEV_SSH }}
+
+                    script: |
+                        cd /var/projects/dociFY
+                        docker stop docify
+                        docker rm docify
+                        sudo git pull
+                        docker build -t docify .
+                        docker run -p 80:80 --name docify docify
