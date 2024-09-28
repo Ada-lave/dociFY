@@ -20,6 +20,7 @@ import { catchError, EMPTY } from 'rxjs';
 })
 export class HomePage {
   files: File[] = []
+  fileOnProcess: boolean = false
 
   constructor(
     private fileService: FileService,
@@ -34,9 +35,12 @@ export class HomePage {
   sendFiles() {
     this.toastSerivce.info("По окончанию он загрузиться сам", "Файл отправлен в обработку")
     let formData = new FormData()
-    formData.append('file', this.files[0])
+    let file = this.files[0]
+
+    formData.append('file',file)
     formData.append('add_spaces_beetween_image_text', 'true')
-    console.log(this.files[0])
+
+    this.files = []
     this.fileService.sendFiles(formData).pipe(
       catchError((err:any) => {
         this.toastSerivce.error("Что то пошло не так")
@@ -47,7 +51,7 @@ export class HomePage {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = this.files[0].name; // Здесь можно задать имя загружаемого файла
+      a.download = file.name; // Здесь можно задать имя загружаемого файла
       document.body.appendChild(a);
       this.toastSerivce.success("Файл успешно отформатирован", "Успешно")
       a.click();

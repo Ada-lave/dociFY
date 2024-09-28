@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class DragAndDropComponent {
   file:any
-  files:File[] = []
+  @Input() files:File[] = []
   @Input() maxFileCount:number = 1
   @Input() types:any[] =['docx']
   @Output() fileSelected: EventEmitter<File[]> = new EventEmitter<File[]>()
