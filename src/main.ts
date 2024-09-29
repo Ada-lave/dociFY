@@ -8,6 +8,8 @@ import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { provideHttpClient } from '@angular/common/http';
 import { provideToastr } from 'ngx-toastr';
+import { importProvidersFrom } from '@angular/core';
+import { MetrikaModule } from 'ng-yandex-metrika';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -17,5 +19,8 @@ bootstrapApplication(AppComponent, {
     provideHttpClient(),
     provideAnimations(),
     provideToastr(),
+    importProvidersFrom(MetrikaModule.forRoot([
+      {id: 98489310}
+    ]))
   ],
 });

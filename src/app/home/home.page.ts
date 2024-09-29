@@ -6,6 +6,7 @@ import { DragAndDropComponent } from '../drag-and-drop/drag-and-drop.component';
 import { FileService } from '../services/file.service';
 import { ToastrService } from 'ngx-toastr';
 import { catchError, EMPTY } from 'rxjs';
+import { Metrika } from 'ng-yandex-metrika';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -24,7 +25,8 @@ export class HomePage {
 
   constructor(
     private fileService: FileService,
-    private toastSerivce: ToastrService
+    private toastSerivce: ToastrService,
+    private metrika: Metrika
   ) { }
 
   handleFiles(files: File[]) {
@@ -33,6 +35,7 @@ export class HomePage {
   }
 
   sendFiles() {
+    this.metrika.reachGoal('file_send')
     this.toastSerivce.info("По окончанию он загрузиться сам", "Файл отправлен в обработку")
     let formData = new FormData()
     let file = this.files[0]
@@ -43,6 +46,7 @@ export class HomePage {
     this.files = []
     this.fileService.sendFiles(formData).pipe(
       catchError((err:any) => {
+        this.metrika.reachGoal('file_send_error')
         this.toastSerivce.error("Что то пошло не так")
         return EMPTY
       })
@@ -57,6 +61,7 @@ export class HomePage {
       a.click();
       a.remove();
       window.URL.revokeObjectURL(url);
+      this.metrika.reachGoal('file_send_success')
     })
   }
 }
