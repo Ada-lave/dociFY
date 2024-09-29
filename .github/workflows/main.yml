@@ -17,8 +17,7 @@ jobs:
 
                     script: |
                         cd /var/projects/dociFY
-                        docker stop docify
-                        docker rm docify
+                        docker compose down
+                        docker system prune
                         sudo git pull
-                        docker build -t docify .
-                        docker run -p 80:80 -d --name docify docify
+                        docker compose up build -d
