@@ -20,6 +20,8 @@ services:
       - /data/certbot/www:/var/www/certbot
     ports:
       - ${SERVICE_PORT}:80
+      - 443:443
+
 
 volumes:
   web-build:
